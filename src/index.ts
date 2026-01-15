@@ -6,8 +6,25 @@ import { generateXml } from "./xml/xmlGenerator";
 import fs from "node:fs";
 import path from "node:path";
 
-const metaPath = path.resolve(process.cwd(), "DeviceXmlMeta.json");
-const meta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
+// Charger un meta optionnel DeviceXmlMeta.json (tolérant si absent)
+let meta: any = {};
+try {
+  const metaPath = path.resolve(process.cwd(), "DeviceXmlMeta.json");
+  if (fs.existsSync(metaPath)) {
+    const raw = fs.readFileSync(metaPath, "utf-8");
+    try {
+      meta = JSON.parse(raw);
+    } catch (err) {
+      console.warn("⚠�� DeviceXmlMeta.json existe mais n'est pas un JSON valide, utilisation d'un meta vide", err);
+      meta = {};
+    }
+  } else {
+    console.warn(`⚠️ DeviceXmlMeta.json introuvable à ${metaPath}, utilisation d'un meta vide`);
+  }
+} catch (err) {
+  console.warn("⚠️ Impossible de lire DeviceXmlMeta.json, utilisation d'un meta vide", err);
+  meta = {};
+}
 
 type DeviceOptions = Record<string, boolean | number | string>;
 
@@ -30,24 +47,24 @@ function parseArgs(): { morphoCode: string; options: DeviceOptions } {
 async function main() {
   const { morphoCode, options } = parseArgs();
 
- const deviceDef = await loadDeviceDefinition(morphoCode);
-const ctx = await buildDeviceContext(deviceDef, options);
+  const deviceDef = await loadDeviceDefinition(morphoCode);
+  const ctx = await buildDeviceContext(deviceDef, options);
 
-// 1) objets + registry (local/ref possible)
-resolveTemplateObjects(ctx);
+  // 1) objets + registry (local/ref possible)
+  resolveTemplateObjects(ctx);
 
-// 2) pos/rot du TEMPLATE_REF vers les instances enfants (Point B)
-applyTemplateRefInstanceTransforms(ctx);
+  // 2) pos/rot du TEMPLATE_REF vers les instances enfants (Point B)
+  applyTemplateRefInstanceTransforms(ctx);
 
-// 3) placement rules (ref(prev/1) possible car registry existe)
-//applyPlacementRules(ctx);
+  // 3) placement rules (ref(prev/1) possible car registry existe)
+  //applyPlacementRules(ctx);
 
-// 4) anchor + world transforms
-applyAnchorAndInstanceTransforms(ctx);
+  // 4) anchor + world transforms
+  applyAnchorAndInstanceTransforms(ctx);
 
-// 5) XML
-const xml = generateXml(ctx, meta);
-console.log(xml);
+  // 5) XML
+  const xml = generateXml(ctx, meta);
+  console.log(xml);
 }
 
 main().catch((err) => {
