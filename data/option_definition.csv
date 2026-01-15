@@ -1,0 +1,3 @@
+id,code,label,type,default_json
+1,armoire_elec,Armoire electrique,bool,false
+2,vase_expansion,Vase d'expansion,bool,false

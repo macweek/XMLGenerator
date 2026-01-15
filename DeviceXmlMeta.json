@@ -1,0 +1,97 @@
+{
+  "ciatlst": {
+    "computerName": "HKJQR04",
+    "userName": " ",
+    "dateTime": "2025-12-12T11:37"
+  },
+  "application": {
+    "appName": "SARAH 25.01.01.(00)",
+    "mode": "M0",
+    "nivExe": "10",
+    "body": {
+      "VERSION": "25.01.01.(00)",
+      "PRICE_LIST_CURRENCY": "EUR",
+      "EURO_CURR_VALUE": "1.000000",
+      "PRICE_LIST": "07/2025"
+    }
+  },
+  "prop": {
+    "from": {
+      "CODE": " ",
+      "ORG": " ",
+      "PHONE": " ",
+      "FAX": " ",
+      "ID": " ",
+      "NAME": " ",
+      "EMAIL": " ",
+      "LANGUAGE": "fr"
+    },
+    "to": {
+      "CODE": " ",
+      "ORG": " ",
+      "NAME": " ",
+      "PHONE": " ",
+      "FAX": " ",
+      "ID": " ",
+      "EMAIL": " ",
+      "ADDL1": " ",
+      "ADDL2": " ",
+      "ADDL3": " ",
+      "ADDL4": " ",
+      "ZIP": " ",
+      "CITY": " ",
+      "STATE": " ",
+      "COUNTRY": " "
+    },
+    "infos": {
+      "LANGUAGE": "fr",
+      "CURRENCY": "EUR",
+      "EURO_CURR_VALUE": "1.000000",
+      "TYPE_COMMANDE": " ",
+      "NUMERO": " ",
+      "RECTIF": "0",
+      "NUMLIGNE": "0",
+      "REFERENCE": " ",
+      "REFPOSTE": " ",
+      "LANGUE_PLAN": "FRA",
+      "AUTORISATION_ENVOI": " ",
+      "ADDL1": " ",
+      "ADDL2": " ",
+      "ADDL3": " ",
+      "ADDL4": " ",
+      "ZIP": " ",
+      "CITY": " ",
+      "STATE": " ",
+      "COUNTRY": " "
+    }
+  },
+  "centrale": {
+    "num": 1,
+    "rftPath": "CARRIER_FAMILY_TEMPLATE",
+    "attributsBim": {
+      "NOTE_IDENTIFICATION": "15700",
+      "MODELE": "OPERA",
+      "FABRICANT": "CIAT",
+      "COMMENTAIRE_DU_TYPE": "OPERA DMN 9034-1 SHI 890A9D 12A1",
+      "URL": "https://digilink.ciat.com/?productLine=Dry%20coolers&documentName=Revit%20Drawings&docName=Opera&language=en",
+      "DESCRIPTION": "Drycooler",
+      "REFERENCE": " "
+    },
+    "attributsBimDyn": [
+      {
+        "NAME": "Reference Interne",
+        "TYPE": "String",
+        "VALEUR": " ",
+        "UNITE": "String",
+        "GROUPE": "TEXTE"
+      },
+      {
+        "NAME": "Puissance thermique circuit 1",
+        "TYPE": "HvacPower",
+        "VALEUR": "200000",
+        "UNITE": "Watts",
+        "GROUPE": "DATA"
+      }
+    ]
+  }
+}

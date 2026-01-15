@@ -1,0 +1,15 @@
+{
+  "env": "dev",
+  "db": {
+    "mode": "sqlite-file",
+    "path": "./data/app.db",
+    "readonly": false,
+    "busyTimeoutMs": 5000
+  },
+  "schemaRegistry": {
+    "path": "./db.schema.json"
+  },
+  "meta": {
+    "deviceXmlMetaPath": "./DeviceXmlMeta.json"
+  }
+}

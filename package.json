@@ -1,0 +1,23 @@
+{
+  "name": "ts-graphgen-xml",
+  "version": "0.1.0",
+  "private": true,
+
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli/index.js",
+    "initdb": "node dist/cli/initdb.js",
+    "demo": "node dist/cli/index.js OPERA_DEMO --option armoire_elec=false --option vase_expansion=false --out ./out/OPERA_DEMO.xml"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "mathjs": "^13.0.0",
+    "xmlbuilder2": "^3.1.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

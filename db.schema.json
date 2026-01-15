@@ -1,0 +1,162 @@
+{
+  "tables": {
+    "object_definition": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "name": ["name"],
+        "comment": ["comment"],
+        "dimension": ["dimension"],
+        "paramLetters": ["param_letters"],
+        "helpJson": ["help_json"]
+      }
+    },
+
+    "template": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "code": ["code"],
+        "label": ["label"],
+        "version": ["version"],
+        "anchorItemNum": ["anchor_item_num"],
+        "normalizeAnchorRot": ["normalize_anchor_rot"],
+        "createdAt": ["created_at"]
+      },
+      "defaults": {
+        "version": 1,
+        "normalizeAnchorRot": 0
+      }
+    },
+
+    "template_item": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "templateId": ["template_id"],
+        "itemNum": ["item_num"],
+        "kind": ["kind"],
+
+        "objectDefId": ["object_def_id"],
+        "refTemplateId": ["ref_template_id"],
+        "slotName": ["slot_name"],
+        "repeatCountExpr": ["repeat_expr"],
+
+        "drawingNum": ["drawing_num"],
+        "parentItemNum": ["parent_item_num"],
+        "parentItemNum2": ["parent_item_num2"],
+
+        "posXExpr": ["pos_x_expr"],
+        "posYExpr": ["pos_y_expr"],
+        "posZExpr": ["pos_z_expr"],
+
+        "rotXExpr": ["rot_x_expr"],
+        "rotYExpr": ["rot_y_expr"],
+        "rotZExpr": ["rot_z_expr"],
+
+        "paramsJson": ["params_json"],
+        "visibilityJson": ["visibility_json"],
+        "miscJson": ["misc_json"],
+        "enabledExpr": ["enabled_expr"]
+      },
+      "defaults": {
+        "slotName": null,
+        "repeatCountExpr": null,
+
+        "drawingNum": 1,
+        "parentItemNum": null,
+        "parentItemNum2": null,
+
+        "posXExpr": "0",
+        "posYExpr": "0",
+        "posZExpr": "0",
+
+        "rotXExpr": "0",
+        "rotYExpr": "0",
+        "rotZExpr": "0",
+
+        "paramsJson": "{}",
+        "visibilityJson": "{}",
+        "miscJson": "{}",
+        "enabledExpr": "1",
+
+        "transformMode": "REL_ANCHOR"
+      }
+    },
+
+    "option_definition": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "code": ["code"],
+        "label": ["label"],
+        "type": ["type"],
+        "defaultJson": ["default_json"]
+      },
+      "defaults": {
+        "defaultJson": "null"
+      }
+    },
+
+    "device_option": {
+      "pk": null,
+      "columns": {
+        "deviceId": ["device_id"],
+        "optionId": ["option_id"],
+        "required": ["required"]
+      },
+      "defaults": {
+        "required": 0
+      }
+    },
+
+    "placement_rule": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "ownerTemplateId": ["owner_template_id"],
+        "targetSlotName": ["target_slot_name"],
+        "ruleType": ["rule_type"],
+        "axis": ["axis"],
+        "direction": ["direction"],
+        "spacingExpr": ["spacing_expr"],
+        "startOffsetExpr": ["start_offset_expr"],
+        "startRotExpr": ["start_rot_expr"],
+        "applyRotation": ["apply_rotation"],
+        "conditionExpr": ["condition_expr"],
+        "orderIndex": ["order_index"]
+      },
+      "defaults": {
+        "direction": 1,
+        "startOffsetExpr": "0",
+        "startRotExpr": "0;0;0",
+        "applyRotation": 0,
+        "orderIndex": 0
+      }
+    },
+
+    "global_kv": {
+      "pk": "key",
+      "columns": {
+        "key": ["key"],
+        "json": ["json"]
+      }
+    },
+
+    "device": {
+      "pk": "id",
+      "columns": {
+        "id": ["id"],
+        "codeMorpho": ["code_morpho"],
+        "label": ["label"],
+        "rootTemplateId": ["root_template_id"],
+        "centraleNum": ["centrale_num"],
+        "globalsJson": ["globals_json"]
+      },
+      "defaults": {
+        "centraleNum": 1,
+        "globalsJson": "{}"
+      }
+    }
+  }
+}

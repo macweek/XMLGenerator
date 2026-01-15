@@ -1,0 +1,7 @@
+id,code_morpho,label,root_template_id,centrale_num,globals_json,overrides_json
+1,OPERA_DEMO_1,Opera SHI 1GMV 1L,24,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
+2,OPERA_DEMO_2,Opera SHI 1GMV 2L,25,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
+3,OPERA_DEMO_3,Opera SHI 1GMV 3L,26,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
+4,OPERA_DEMO_4,Opera SHI 1GMV 1L,27,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
+5,OPERA_DEMO_5,Opera SHI 1GMV 2L,28,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
+6,OPERA_DEMO_6,Opera SHI 1GMV 3L,29,1,"{""tableGMV"":{""diam"":1065,""haut"":423}}",{}
