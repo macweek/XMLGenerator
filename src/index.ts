@@ -15,7 +15,7 @@ try {
     try {
       meta = JSON.parse(raw);
     } catch (err) {
-      console.warn("⚠�� DeviceXmlMeta.json existe mais n'est pas un JSON valide, utilisation d'un meta vide", err);
+      console.warn("⚠️ DeviceXmlMeta.json existe mais n'est pas un JSON valide, utilisation d'un meta vide", err);
       meta = {};
     }
   } else {
