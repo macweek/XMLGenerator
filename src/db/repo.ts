@@ -1,4 +1,4 @@
-import type { Db } from './sqlite.js';
+import type { Db } from '../repository/sqlite.js';
 
 export type ObjectDefinition = {
   id: number;

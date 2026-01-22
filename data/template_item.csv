@@ -1,89 +1,185 @@
 id,template_id,item_num,kind,object_def_id,ref_template_id,slot_name,repeat_expr,drawing_num,parent_item_num,parent_item_num2,pos_x_expr,pos_y_expr,pos_z_expr,rot_x_expr,rot_y_expr,rot_z_expr,params_json,visibility_json,misc_json,enabled_expr
 1,1,1,OBJECT,3,,CYLINDRE,,1,,,0,0,0,90,0,0,"{""A"":""30"",""B"":""100""}",{},"{""LAYER"":""DRY_SYMBOL"",""R"":150,""G"":150,""B"":150}",1
 2,1,2,OBJECT,4,,CONE,,1,,,0,0,local(1).B,90,0,0,"{""A"":""75"",""B"":""50""}",{},"{""LAYER"":""DRY_SYMBOL"",""R"":150,""G"":150,""B"":150}",1
-3,2,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""950"",""B"":""1170"",""C"":""510""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
-4,2,2,OBJECT,3,,CYLINDRE,,1,,,0,0,local(1).pz + local(1).C/2,90,0,0,"{""A"":""1065"",""B"":""423""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+3,2,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""options.moduleSizeA"",""B"":""options.moduleSizeB"",""C"":""options.moduleSizeC""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
+4,2,2,OBJECT,3,,CYLINDRE,,1,,,0,0,local(1).pz + local(1).C/2,90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
 5,2,3,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(2).pz+ local(2).B + 75,0,0,0,{},{},{},1
-6,3,1,OBJECT,1,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""1600"",""B"":""1170"",""C"":""510""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
-7,3,2,OBJECT,2,,CYLINDRE,,1,,,0,0,local(1).pz + local(1).C/2,90,0,0,"{""A"":""1065"",""B"":""423""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
-8,3,3,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(2).pz+ local(2).B + 75,0,0,0,{},{},{},1
-9,4,1,OBJECT,1,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""1900"",""B"":""1170"",""C"":""510""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
-10,4,2,OBJECT,2,,CYLINDRE,,1,,,0,0,local(1).pz + local(1).C/2,90,0,0,"{""A"":""1065"",""B"":""423""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
-11,4,3,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(2).pz+ local(2).B + 75,0,0,0,{},{},{},1
-12,5,1,TEMPLATE_REF,,2,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-13,5,2,TEMPLATE_REF,,2,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-14,6,1,TEMPLATE_REF,,2,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-15,6,2,TEMPLATE_REF,,2,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-16,6,3,TEMPLATE_REF,,2,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-17,7,1,TEMPLATE_REF,,2,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-18,7,2,TEMPLATE_REF,,2,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-19,7,3,TEMPLATE_REF,,2,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-20,7,4,TEMPLATE_REF,,2,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-21,8,1,TEMPLATE_REF,,2,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-22,8,2,TEMPLATE_REF,,2,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-23,8,3,TEMPLATE_REF,,2,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-24,8,4,TEMPLATE_REF,,2,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-25,8,5,TEMPLATE_REF,,2,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-26,9,1,TEMPLATE_REF,,2,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-27,9,2,TEMPLATE_REF,,2,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-28,9,3,TEMPLATE_REF,,2,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-29,9,4,TEMPLATE_REF,,2,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-30,9,5,TEMPLATE_REF,,2,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-31,9,6,TEMPLATE_REF,,2,modules,,1,,,local(5).px + local(4).A,0,0,0,0,0,{},{},{},1
-32,10,1,TEMPLATE_REF,,3,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-33,10,2,TEMPLATE_REF,,3,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-34,11,1,TEMPLATE_REF,,3,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-35,11,2,TEMPLATE_REF,,3,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-36,11,3,TEMPLATE_REF,,3,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-37,12,1,TEMPLATE_REF,,3,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-38,12,2,TEMPLATE_REF,,3,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-39,12,3,TEMPLATE_REF,,3,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-40,12,4,TEMPLATE_REF,,3,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-41,13,1,TEMPLATE_REF,,3,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-42,13,2,TEMPLATE_REF,,3,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-43,13,3,TEMPLATE_REF,,3,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-44,13,4,TEMPLATE_REF,,3,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-45,13,5,TEMPLATE_REF,,3,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-46,14,1,TEMPLATE_REF,,3,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-47,14,2,TEMPLATE_REF,,3,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-48,14,3,TEMPLATE_REF,,3,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-49,14,4,TEMPLATE_REF,,3,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-50,14,5,TEMPLATE_REF,,3,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-51,14,6,TEMPLATE_REF,,3,modules,,1,,,local(5).px + local(4).A,0,0,0,0,0,{},{},{},1
-52,15,1,TEMPLATE_REF,,4,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-53,15,2,TEMPLATE_REF,,4,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-54,16,1,TEMPLATE_REF,,4,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-55,16,2,TEMPLATE_REF,,4,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-56,16,3,TEMPLATE_REF,,4,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-57,17,1,TEMPLATE_REF,,4,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-58,17,2,TEMPLATE_REF,,4,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-59,17,3,TEMPLATE_REF,,4,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-60,17,4,TEMPLATE_REF,,4,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-61,18,1,TEMPLATE_REF,,4,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-62,18,2,TEMPLATE_REF,,4,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-63,18,3,TEMPLATE_REF,,4,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-64,18,4,TEMPLATE_REF,,4,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-65,18,5,TEMPLATE_REF,,4,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-66,19,1,TEMPLATE_REF,,4,modules,,1,,,0,0,0,0,0,0,{},{},{},1
-67,19,2,TEMPLATE_REF,,4,modules,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
-68,19,3,TEMPLATE_REF,,4,modules,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
-69,19,4,TEMPLATE_REF,,4,modules,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
-70,19,5,TEMPLATE_REF,,4,modules,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
-71,19,6,TEMPLATE_REF,,4,modules,,1,,,local(5).px + local(4).A,0,0,0,0,0,{},{},{},1
-72,20,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""120"",""B"":""5"",""C"":""80""}",{},{},1
-73,20,2,OBJECT,5,,CERCLE,,1,local(1).id,,local(1).px ,local(1).py ,local(1).pz+local(1).C/2-35,90,0,0,"{""A"":""0"",""B"":""360"",""C"":""30.5"",""D"":local(1).B/2}",{},{},1
-74,21,1,TEMPLATE_REF,,20,Point_Levage_OPERA_phase1,,1,,,0,-ref(Point_Levage_OPERA_phase1[0]/1).B,ref(Point_Levage_OPERA_phase1[0]/1).C/2,,,,{},{},{},1
-75,22,1,TEMPLATE_REF,,21,Point_Levage_OPERA_phase2,,1,,,0,0,0,30,,,{},{},{},1
-76,23,1,TEMPLATE_REF,,22,Point_Levage_OPERA_Gauche,,1,,,0,0,0,0,0,180,{},{},{},1
-77,24,1,TEMPLATE_REF,,2,1modules,,1,,,0,0,0,0,0,0,{},{},{},1
-78,24,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
-79,25,1,TEMPLATE_REF,,5,2modules,,1,,,0,0,0,0,0,0,{},{},{},1
-80,25,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
-81,26,1,TEMPLATE_REF,,6,2modules,,1,,,0,0,0,0,0,0,{},{},{},1
-82,26,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
-83,27,1,TEMPLATE_REF,,7,2modules,,1,,,0,0,0,0,0,0,{},{},{},1
-84,27,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
-85,28,1,TEMPLATE_REF,,8,2modules,,1,,,0,0,0,0,0,0,{},{},{},1
-86,28,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
-87,29,1,TEMPLATE_REF,,9,2modules,,1,,,0,0,0,0,0,0,{},{},{},1
-88,29,2,TEMPLATE_REF,,21,Point_Levage_OPERA_DROIT,,1,,,0,0,0,0,0,0,{},{},{},1
+6,3,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""options.moduleSizeA"",""B"":""options.moduleSizeB"",""C"":""options.moduleSizeC""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
+7,3,2,OBJECT,3,,CYLINDRE,,1,,,0,0,local(1).pz - local(1).C/2,-90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+8,3,3,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(1).pz + local(1).C/2 +75,0,0,0,{},{},{},1
+9,4,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""options.moduleSizeA"",""B"":""options.moduleSizeB"",""C"":""options.moduleSizeC""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
+10,4,2,OBJECT,3,,CYLINDRE,,1,,,0,local(1).p + local(1).B/4,local(1).pz + local(1).C/2,90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+10,4,3,OBJECT,3,,CYLINDRE,,1,,,0,local(1).p - local(1).B/4,local(1).pz + local(1).C/2,90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+11,4,4,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(2).pz+ local(2).B + 75,0,0,0,{},{},{},1
+,5,1,OBJECT,2,,PLAQUE,,1,,,0,0,0,0,0,0,"{""A"":""options.moduleSizeA"",""B"":""options.moduleSizeB"",""C"":""options.moduleSizeC""}",{},"{""LAYER"":""DRY_CORPS"",""R"":200,""G"":200,""B"":200,""BIM_MATERIAUX"":""C_GALVA""}",1
+,5,2,OBJECT,3,,CYLINDRE,,1,,,0,local(1).p + local(1).B/4,local(1).pz - local(1).C/2,-90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+,5,3,OBJECT,3,,CYLINDRE,,1,,,0,local(1).p - local(1).B/4,local(1).pz - local(1).C/2,-90,0,0,"{""A"":""options.gmv_radius"",""B"":""options.gmv_height""}",{},"{""LAYER"":""DRY_CORPS"",""R"":150,""G"":150,""B"":150,""BIM_MATERIAUX"":""C_9005""}",1
+,5,4,TEMPLATE_REF,,1,fleche,,1,,,0,0,local(1).pz+ local(1).C/2 + 75,0,0,0,{},{},{},1
+,6,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},,
+,7,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,7,2,TEMPLATE_REF,,2,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,8,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,8,2,TEMPLATE_REF,,2,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,8,3,TEMPLATE_REF,,2,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,9,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,9,2,TEMPLATE_REF,,2,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,9,3,TEMPLATE_REF,,2,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,9,4,TEMPLATE_REF,,2,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,10,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,10,2,TEMPLATE_REF,,2,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,10,3,TEMPLATE_REF,,2,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,10,4,TEMPLATE_REF,,2,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,10,5,TEMPLATE_REF,,2,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,11,1,TEMPLATE_REF,,2,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,11,2,TEMPLATE_REF,,2,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,11,3,TEMPLATE_REF,,2,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,11,4,TEMPLATE_REF,,2,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,11,5,TEMPLATE_REF,,2,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,11,6,TEMPLATE_REF,,2,modules_SHI,,1,,,local(5).px + local(4).A,0,0,0,0,0,{},{},{},1
+,12,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},,,
+,13,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,13,2,TEMPLATE_REF,,3,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,14,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,14,2,TEMPLATE_REF,,3,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,14,3,TEMPLATE_REF,,3,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,15,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,15,2,TEMPLATE_REF,,3,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,15,3,TEMPLATE_REF,,3,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,15,4,TEMPLATE_REF,,3,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,16,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,16,2,TEMPLATE_REF,,3,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,16,3,TEMPLATE_REF,,3,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,16,4,TEMPLATE_REF,,3,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,16,5,TEMPLATE_REF,,3,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,17,1,TEMPLATE_REF,,3,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,17,2,TEMPLATE_REF,,3,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,17,3,TEMPLATE_REF,,3,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,17,4,TEMPLATE_REF,,3,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,17,5,TEMPLATE_REF,,3,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,17,6,TEMPLATE_REF,,3,modules_SHF,,1,,,local(5).px + local(4).A,0,0,0,0,0,{},{},{},1
+,18,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,18,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,19,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,19,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,19,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,20,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,20,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,20,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,20,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,21,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,21,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,21,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,21,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,21,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,22,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,22,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,22,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,22,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,22,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,22,6,TEMPLATE_REF,,4,modules_SHI,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,23,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,23,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,23,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,23,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,23,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,23,6,TEMPLATE_REF,,4,modules_SHI,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,23,7,TEMPLATE_REF,,4,modules_SHI,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,24,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,24,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,24,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,24,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,24,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,24,6,TEMPLATE_REF,,4,modules_SHI,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,24,7,TEMPLATE_REF,,4,modules_SHI,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,24,8,TEMPLATE_REF,,4,modules_SHI,,1,,,local(7).px + local(7).A,0,0,0,0,0,{},{},{},1
+,25,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,25,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,25,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,25,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,25,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,25,6,TEMPLATE_REF,,4,modules_SHI,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,25,7,TEMPLATE_REF,,4,modules_SHI,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,25,8,TEMPLATE_REF,,4,modules_SHI,,1,,,local(7).px + local(7).A,0,0,0,0,0,{},{},{},1
+,25,9,TEMPLATE_REF,,4,modules_SHI,,1,,,local(8).px + local(8).A,0,0,0,0,0,{},{},{},1
+,26,1,TEMPLATE_REF,,4,modules_SHI,,1,,,0,0,0,0,0,0,{},{},{},1
+,26,2,TEMPLATE_REF,,4,modules_SHI,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,26,3,TEMPLATE_REF,,4,modules_SHI,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,26,4,TEMPLATE_REF,,4,modules_SHI,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,26,5,TEMPLATE_REF,,4,modules_SHI,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,26,6,TEMPLATE_REF,,4,modules_SHI,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,26,7,TEMPLATE_REF,,4,modules_SHI,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,26,8,TEMPLATE_REF,,4,modules_SHI,,1,,,local(7).px + local(8).A,0,0,0,0,0,{},{},{},1
+,26,9,TEMPLATE_REF,,4,modules_SHI,,1,,,local(8).px + local(8).A,0,0,0,0,0,{},{},{},1
+,26,10,TEMPLATE_REF,,4,modules_SHI,,1,,,local(9).px + local(9).A,0,0,0,0,0,{},{},{},1
+,27,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,27,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,28,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,28,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,28,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,29,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,29,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,29,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,29,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,30,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,30,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,30,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,30,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,30,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,31,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,31,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,31,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,31,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,31,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,31,6,TEMPLATE_REF,,5,modules_SHF,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,32,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,32,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,32,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,32,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,32,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,32,6,TEMPLATE_REF,,5,modules_SHF,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,32,7,TEMPLATE_REF,,5,modules_SHF,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,33,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,33,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,33,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,33,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,33,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,33,6,TEMPLATE_REF,,5,modules_SHF,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,33,7,TEMPLATE_REF,,5,modules_SHF,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,33,8,TEMPLATE_REF,,5,modules_SHF,,1,,,local(7).px + local(7).A,0,0,0,0,0,{},{},{},1
+,34,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,34,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,34,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,34,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,34,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,34,6,TEMPLATE_REF,,5,modules_SHF,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,34,7,TEMPLATE_REF,,5,modules_SHF,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,34,8,TEMPLATE_REF,,5,modules_SHF,,1,,,local(7).px + local(7).A,0,0,0,0,0,{},{},{},1
+,34,9,TEMPLATE_REF,,5,modules_SHF,,1,,,local(8).px + local(8).A,0,0,0,0,0,{},{},{},1
+,35,1,TEMPLATE_REF,,5,modules_SHF,,1,,,0,0,0,0,0,0,{},{},{},1
+,35,2,TEMPLATE_REF,,5,modules_SHF,,1,,,local(1).px + local(1).A,0,0,0,0,0,{},{},{},1
+,35,3,TEMPLATE_REF,,5,modules_SHF,,1,,,local(2).px + local(2).A,0,0,0,0,0,{},{},{},1
+,35,4,TEMPLATE_REF,,5,modules_SHF,,1,,,local(3).px + local(3).A,0,0,0,0,0,{},{},{},1
+,35,5,TEMPLATE_REF,,5,modules_SHF,,1,,,local(4).px + local(4).A,0,0,0,0,0,{},{},{},1
+,35,6,TEMPLATE_REF,,5,modules_SHF,,1,,,local(5).px + local(5).A,0,0,0,0,0,{},{},{},1
+,35,7,TEMPLATE_REF,,5,modules_SHF,,1,,,local(6).px + local(6).A,0,0,0,0,0,{},{},{},1
+,35,8,TEMPLATE_REF,,5,modules_SHF,,1,,,local(7).px + local(8).A,0,0,0,0,0,{},{},{},1
+,35,9,TEMPLATE_REF,,5,modules_SHF,,1,,,local(8).px + local(8).A,0,0,0,0,0,{},{},{},1
+,35,10,TEMPLATE_REF,,5,modules_SHF,,1,,,local(9).px + local(9).A,0,0,0,0,0,{},{},{},1
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,66,1,OBJECT,1,,plaque,,1,,,0,2.5,0,0,0,0,"{""A"":""120"",""B"":""5"",""C"":""80"",""D"":""0"",""E"":""0""}",,,
+,66,2,OBJECT,5,,trou,,1,local(1).id,,local(1).px,local(1).py,local(1).pz+local(1).C/2-35,90,0,0,"{""A"":""0"",""B"":""360"",""C"":""30.5"",""D"":""local(1).B/2""}",,,
+,67,1,TEMPLATE_REF,,66,Point_Levage_OPERA_phase2,,1,,,0,ref(plaque[0]/1).B/2,ref(plaque[0]/1).C/2,0,0,0,{},,,
+,68,1,TEMPLATE_REF,,67,Point_Levage_OPERA_Gauche,,1,,,0,0,0,30,0,0,{},,,
+,69,1,TEMPLATE_REF,,68,Point_Levage_OPERA_Droit,,1,,,0,0,0,0,0,180,{},,,
+,70,1,TEMPLATE_REF,,68,Point_Levage_OPERA_Gauche,,1,,,0,options.moduleSizeB/2,0,0,0,0,{},,,
+,70,2,TEMPLATE_REF,,69,Point_Levage_OPERA_Droit,,1,,,0,-options.moduleSizeB/2,0,0,0,0,{},,,
+,36,1,TEMPLATE_REF,,6,modules,,1,,,0,0,0,0,0,0,{},,,
+,36,2,TEMPLATE_REF,,70,Point_Levage_OPERA,,1,,,-ref(modules[0]/1).A/2+60,0,-ref(modules[0]/1).C/2,0,0,0,{},,,

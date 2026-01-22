@@ -2,6 +2,7 @@ import Database from "better-sqlite3";
 import { loadConfig } from "../config/config";
 
 let db: Database.Database | null = null;
+export type Db = Database.Database;
 
 export function getDb() {
   if (db) return db;

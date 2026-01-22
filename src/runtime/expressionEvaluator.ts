@@ -39,23 +39,28 @@ import {
 export type EvalEnv = {
   ctx: DeviceContext;
   instance: TemplateInstance;
-
   // index de répétition (si besoin plus tard)
   i?: number;
-
   // "prev" possible plus tard (pour rules CUSTOM)
   prevInstancePath?: string | null;
 };
 
 export function evalNumber(expr: string, env: EvalEnv): number {
-  const v = evalValue(expr, env);
-  if (typeof v === "number") return v;
+  try {
+    const v = evalValue(expr, env);
+    if (typeof v === "number") return v;
 
-  // Si string convertible
-  const n = Number(v);
-  if (Number.isFinite(n)) return n;
+    const n = Number(v);
+    if (Number.isFinite(n)) return n;
 
-  throw new Error(`Expression not a number: ${expr} -> ${String(v)}`);
+    throw new Error(`Expression not a number: ${expr} -> ${String(v)}`);
+  } catch (e: any) {
+    const inst = env?.instance?.path ?? "?";
+    const tpl = env?.instance?.templateId ?? "?";
+    throw new Error(
+      `Eval error in expr='${expr}' (instance='${inst}', templateId=${tpl}): ${e?.message ?? String(e)}`
+    );
+  }
 }
 
 export function evalString(expr: string, env: EvalEnv): string {
@@ -73,6 +78,7 @@ export function evalString(expr: string, env: EvalEnv): string {
  *
  * Note: l'ancre (normalisation) sera appliquée au fichier 5.
  */
+/*
 export function resolveTemplateObjects(ctx: DeviceContext): ResolvedObject[] {
   const objects: ResolvedObject[] = [];
   const registry = new Map<ObjectPath, ResolvedObject>();
@@ -182,13 +188,210 @@ export function resolveTemplateObjects(ctx: DeviceContext): ResolvedObject[] {
 
   return ctx.objects;
 }
+*/
+export function resolveTemplateObjects(ctx: DeviceContext): ResolvedObject[] {
+  const objects: ResolvedObject[] = [];
+  const registry = new Map<ObjectPath, ResolvedObject>();
 
+  // ✅ NUM global unique dans tout le XML
+  let nextGlobalNum = 0;
+
+  // -----------------------------
+  // PASS 1: créer les objets (placeholders) + NUM + registry
+  // -----------------------------
+  for (const instance of ctx.instances) {
+    const items = ctx.templateItemsByTemplate.get(instance.templateId) ?? [];
+
+    for (const it of items) {
+      if (it.kind !== "OBJECT" || !it.objectDefId) continue;
+
+      // enabled_expr (si dépend de local/ref, à déplacer en pass2)
+      if (it.enabledExpr && !evalBoolean(it.enabledExpr, { ctx, instance })) {
+        continue;
+      }
+
+      const def = mustGet(ctx.objectDefs, it.objectDefId, "ObjectDefinition");
+
+      nextGlobalNum += 1;
+
+      const objectPath: ObjectPath = `${instance.path}/${it.itemNum}`;
+
+      const resolved: ResolvedObject = {
+        objectPath,
+        drawingNum: it.drawingNum ?? 1,
+
+        // ✅ global
+        num: nextGlobalNum,
+
+        dimension: def.dimension,
+        name: def.name,
+        comment: def.comment,
+
+        // sera évalué en pass2
+        parentNum: -1,
+
+        origin: { x: 0, y: 0, z: 0 },
+        rotation: { x: 0, y: 0, z: 0 },
+
+        params: Object.fromEntries(def.paramLetters.map((l) => [l, "0"])),
+
+        visibility: (it.visibilityJson ?? {}) as Record<string, JsonValue>,
+        misc: (it.miscJson ?? {}) as Record<string, JsonValue>,
+
+        templateItemId: it.id,
+        templateId: it.templateId,
+        itemNum: it.itemNum,
+      };
+
+      objects.push(resolved);
+      registry.set(objectPath, resolved);
+    }
+  }
+
+  // ✅ publier registry pour local()/ref() en pass2
+  ctx.objects = objects;
+  ctx.objectRegistry = registry;
+
+  // -----------------------------
+  // PASS 2: évaluer pos/rot/params + parentNum
+  // -----------------------------
+  for (const instance of ctx.instances) {
+    const items = ctx.templateItemsByTemplate.get(instance.templateId) ?? [];
+
+    for (const it of items) {
+      if (it.kind !== "OBJECT" || !it.objectDefId) continue;
+
+      const objectPath: ObjectPath = `${instance.path}/${it.itemNum}`;
+      const obj = ctx.objectRegistry.get(objectPath);
+      if (!obj) continue;
+
+      const def = mustGet(ctx.objectDefs, it.objectDefId, "ObjectDefinition");
+
+      const env: EvalEnv = {
+        ctx,
+        instance,
+        i: (instance as any).repeatIndex ?? 0,
+      };
+
+      // position / rotation
+      obj.origin = {
+        x: evalNumber(it.posXExpr ?? "0", env),
+        y: evalNumber(it.posYExpr ?? "0", env),
+        z: evalNumber(it.posZExpr ?? "0", env),
+      };
+
+      obj.rotation = {
+        x: evalNumber(it.rotXExpr ?? "0", env),
+        y: evalNumber(it.rotYExpr ?? "0", env),
+        z: evalNumber(it.rotZExpr ?? "0", env),
+      };
+
+      // params
+      const params: Record<string, string> = {};
+      for (const letter of def.paramLetters) {
+        const raw = it.paramsJson?.[letter];
+        if (raw === undefined || raw === null) {
+          params[letter] = "0";
+        } else {
+          params[letter] = String(evalValue(String(raw), env));
+        }
+      }
+      obj.params = params;
+
+      // ✅ parentNum (EXPRESSION)
+      // IMPORTANT: ici il faut une string, pas un int “itemNum”
+      const parentExpr =
+        (it as any).parentItemNum ?? (it as any).parentExpr ?? null;
+
+      if (parentExpr === null || parentExpr === undefined || String(parentExpr).trim() === "") {
+        obj.parentNum = -1;
+      } else {
+        const s = String(parentExpr).trim();
+
+        if (s === "-1" || s === "0") {
+          obj.parentNum = -1;
+        } else {
+          try {
+            const parentNum = evalNumber(s, env);
+
+            // log utile debug
+            if (!Number.isFinite(parentNum) || parentNum <= 0) {
+              console.warn(`[PARENT] invalide '${s}' -> ${parentNum} pour ${obj.objectPath}`);
+              obj.parentNum = -1;
+            } else {
+              obj.parentNum = Math.floor(parentNum);
+            }
+          } catch (e) {
+            console.warn(`[PARENT] introuvable '${s}' pour ${obj.objectPath}`);
+            obj.parentNum = -1;
+          }
+        }
+      }
+    }
+  }
+
+  return ctx.objects;
+}
+
+
+// ------------------------------------------------------------
+// Parent resolution
+// ------------------------------------------------------------
+
+function resolveParentNum(
+  ctx: DeviceContext,
+  instance: TemplateInstance,
+  it: any, // TemplateItem + champs éventuels
+  env: EvalEnv
+): number {
+  // (1) parentItemNum : référence directe à un item dans la même instance
+  const parentItemNum: number | null | undefined = it.parentItemNum ?? null;
+  if (typeof parentItemNum === "number" && parentItemNum > 0) {
+    const parentPath = `${instance.path}/${parentItemNum}`;
+    const parentObj = ctx.objectRegistry.get(parentPath);
+    return parentObj ? parentObj.num : -1;
+  }
+
+  // (2) parentNumExpr : expression type "local(1).id"
+  const parentNumExpr: string | null | undefined = it.parentNumExpr ?? null;
+  if (parentNumExpr && String(parentNumExpr).trim() !== "") {
+    const n = evalNumber(String(parentNumExpr), env as any);
+    return Number.isFinite(n) ? Math.floor(n) : -1;
+  }
+
+  return -1;
+}
+
+// ------------------------------------------------------------
+// Helpers (à garder comme avant / adapter)
+// ------------------------------------------------------------
+
+function evalBoolean(expr: string, env: EvalEnv): boolean {
+  const v = evalValueSafe(expr, env);
+  if (typeof v === "boolean") return v;
+  if (typeof v === "number") return v !== 0;
+  const s = String(v).toLowerCase().trim();
+  if (s === "true") return true;
+  if (s === "false") return false;
+  const n = Number(s);
+  if (Number.isFinite(n)) return n !== 0;
+  return Boolean(s);
+}
+
+function evalValueSafe(expr: string, env: EvalEnv): any {
+  // IMPORTANT : ici tu réutilises ton moteur actuel evalValue(...)
+  // si tu es dans le même fichier : appelle directement evalValue(expr, env)
+  // sinon exporte evalValue, ou garde une version “public” (evalAny)
+  return (globalThis as any).__evalValue
+    ? (globalThis as any).__evalValue(expr, env)
+    : expr.replace(/^=/, "");
+}
 
 
 // -----------------------------
 // Boolean eval (simple)
 // -----------------------------
-
+/*
 function evalBoolean(expr: string, env: EvalEnv): boolean {
   // MVP: accepte "true/false", "1/0", ou expression numérique non-nulle
   const v = evalValue(expr, env);
@@ -201,7 +404,7 @@ function evalBoolean(expr: string, env: EvalEnv): boolean {
   if (Number.isFinite(n)) return n !== 0;
   return Boolean(s);
 }
-
+*/
 // -----------------------------
 // Core evaluator
 // -----------------------------
@@ -218,27 +421,30 @@ type Token =
 
 function evalValue(expr: string, env: EvalEnv): any {
   const cleaned = (expr ?? "").trim().replace(/^=/, "");
-  if (cleaned === "") return 0;
+  // support décimales "fr" : 0,5 -> 0.5 (mais ne touche pas aux séparateurs d'arguments "ref(a,b)")
+  const normalized = cleaned.replace(/(\d),(\d)/g, "$1.$2");
+
+  if (normalized === "") return 0;
 
   // Short-cuts
-  if (cleaned === "true") return true;
-  if (cleaned === "false") return false;
+  if (normalized === "true") return true;
+  if (normalized === "false") return false;
 
   // Si c'est un simple nombre
-  const asNum = Number(cleaned);
-  if (Number.isFinite(asNum) && /^[+-]?\d+(\.\d+)?$/.test(cleaned)) return asNum;
+  const asNum = Number(normalized);
+  if (Number.isFinite(asNum) && /^[+-]?\d+(\.\d+)?$/.test(normalized)) return asNum;
   // Si l'expression contient des "chains" (local/ref/options/globals), on passe par evalWithChains
   if (
-    cleaned.includes("local(") ||
-    cleaned.includes("ref(") ||
-    cleaned.includes("options.") ||
-    cleaned.includes("globals.")
+    normalized.includes("local(") ||
+    normalized.includes("ref(") ||
+    normalized.includes("options.") ||
+    normalized.includes("globals.")
   ) {
-  return evalWithChains(cleaned, env);
+  return evalWithChains(normalized, env);
 }
 
   // Tokenize
-  const tokens = tokenize(cleaned);
+  const tokens = tokenize(normalized);
 
   // Shunting-yard -> RPN
   const rpn = toRpn(tokens);
@@ -479,7 +685,9 @@ function evalRpn(rpn: Token[], env: EvalEnv): any {
       continue;
     }
   }
-  if (stack.length !== 1) throw new Error("Bad expression (stack)");
+  if (stack.length !== 1) {
+    throw new Error(`Bad expression (stack). rpn='${rpnToString(rpn)}' stackLen=${stack.length}`);
+  }
   return stack[0];
 }
 

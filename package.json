@@ -2,7 +2,6 @@
   "name": "ts-graphgen-xml",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/cli/index.js",
@@ -12,7 +11,7 @@
   "dependencies": {
     "better-sqlite3": "^11.3.0",
     "mathjs": "^13.0.0",
-    "xmlbuilder2": "^3.1.1",
+    "xmlbuilder2": "^4.0.3",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

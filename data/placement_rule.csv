@@ -1,6 +1,1 @@
 id,owner_template_id,target_slot_name,rule_type,axis,direction,spacing_expr,start_offset_expr,start_rot_expr,apply_rotation,condition_expr,order_index
-1,6,modules,LINEAR,X,1,ref(prev/1).px+ref(prev/1).A,0,0;0;0,0,,0
-2,7,modules,LINEAR,X,1,ref(prev/1).px+ref(prev/1).A,0,0;0;0,0,,0
-3,8,modules,LINEAR,X,1,ref(prev/1).px+ref(prev/1).A,0,0;0;0,0,,0
-4,9,modules,LINEAR,X,1,ref(prev/1).px+ref(prev/1).A,0,0;0;0,0,,0
-5,10,modules,LINEAR,X,1,ref(prev/1).px+ref(prev/1).A,0,0;0;0,0,,0

@@ -1,0 +1,388 @@
+<CIATLST COMPUTER_NAME="HKJQR04" USER_NAME=" " DATE_TIME="2025-12-12T11:37">
+  <APPLICATION APP_NAME="SARAH 25.01.01.(00)" MODE="M0" NIV_EXE="10">
+    SARAH
+    <VERSION>25.01.01.(00)</VERSION>
+    <PRICE_LIST_CURRENCY>EUR</PRICE_LIST_CURRENCY>
+    <EURO_CURR_VALUE>1.000000</EURO_CURR_VALUE>
+    <PRICE_LIST>07/2025</PRICE_LIST>
+  </APPLICATION>
+  <CALL/>
+  <PROP>
+    <FROM>
+      <CODE> </CODE>
+      <ORG> </ORG>
+      <PHONE> </PHONE>
+      <FAX> </FAX>
+      <ID> </ID>
+      <NAME> </NAME>
+      <EMAIL> </EMAIL>
+      <LANGUAGE>fr</LANGUAGE>
+    </FROM>
+    <TO>
+      <CODE> </CODE>
+      <ORG> </ORG>
+      <NAME> </NAME>
+      <PHONE> </PHONE>
+      <FAX> </FAX>
+      <ID> </ID>
+      <EMAIL> </EMAIL>
+      <ADDL1> </ADDL1>
+      <ADDL2> </ADDL2>
+      <ADDL3> </ADDL3>
+      <ADDL4> </ADDL4>
+      <ZIP> </ZIP>
+      <CITY> </CITY>
+      <STATE> </STATE>
+      <COUNTRY> </COUNTRY>
+    </TO>
+    <INFOS>
+      <LANGUAGE>fr</LANGUAGE>
+      <CURRENCY>EUR</CURRENCY>
+      <EURO_CURR_VALUE>1.000000</EURO_CURR_VALUE>
+      <TYPE_COMMANDE> </TYPE_COMMANDE>
+      <NUMERO> </NUMERO>
+      <RECTIF>0</RECTIF>
+      <NUMLIGNE>0</NUMLIGNE>
+      <REFERENCE> </REFERENCE>
+      <REFPOSTE> </REFPOSTE>
+      <LANGUE_PLAN>FRA</LANGUE_PLAN>
+      <AUTORISATION_ENVOI> </AUTORISATION_ENVOI>
+      <ADDL1> </ADDL1>
+      <ADDL2> </ADDL2>
+      <ADDL3> </ADDL3>
+      <ADDL4> </ADDL4>
+      <ZIP> </ZIP>
+      <CITY> </CITY>
+      <STATE> </STATE>
+      <COUNTRY> </COUNTRY>
+    </INFOS>
+  </PROP>
+  <CENTRALE NUM="1" RFT_PATH="CARRIER_FAMILY_TEMPLATE">
+    <ATTRIBUTS_BIM>
+      <NOTE_IDENTIFICATION>15700</NOTE_IDENTIFICATION>
+      <MODELE>OPERA</MODELE>
+      <FABRICANT>CIAT</FABRICANT>
+      <COMMENTAIRE_DU_TYPE>OPERA DMN 9034-1 SHI 890A9D 12A1</COMMENTAIRE_DU_TYPE>
+      <URL>https://digilink.ciat.com/?productLine=Dry%20coolers&amp;documentName=Revit%20Drawings&amp;docName=Opera&amp;language=en</URL>
+      <DESCRIPTION>Drycooler</DESCRIPTION>
+      <REFERENCE> </REFERENCE>
+    </ATTRIBUTS_BIM>
+    <ATTRIBUTS_BIM_DYNAMIQUE>
+      <ATTRIBUT NAME="Reference Interne">
+        <TYPE>String</TYPE>
+        <VALEUR> </VALEUR>
+        <UNITE>String</UNITE>
+        <GROUPE>TEXTE</GROUPE>
+      </ATTRIBUT>
+      <ATTRIBUT NAME="Puissance thermique circuit 1">
+        <TYPE>HvacPower</TYPE>
+        <VALEUR>200000</VALEUR>
+        <UNITE>Watts</UNITE>
+        <GROUPE>DATA</GROUPE>
+      </ATTRIBUT>
+    </ATTRIBUTS_BIM_DYNAMIQUE>
+    <DRAWING NUM="1">
+      <OBJECT NUM="1" DIMENSION="3" NAME="VOLUME" COMMENT="PLAQUE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>950</A>
+          <B>1170</B>
+          <C>510</C>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>DRY_CORPS</LAYER>
+          <R>200</R>
+          <G>200</G>
+          <B>200</B>
+          <BIM_MATERIAUX>C_GALVA</BIM_MATERIAUX>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="2" DIMENSION="3" NAME="VOLUME" COMMENT="CYLINDRE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>255</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>90</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>800</A>
+          <B>150</B>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>DRY_CORPS</LAYER>
+          <R>150</R>
+          <G>150</G>
+          <B>150</B>
+          <BIM_MATERIAUX>C_9005</BIM_MATERIAUX>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="3" DIMENSION="3" NAME="VOLUME" COMMENT="CYLINDRE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>480</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>90</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>30</A>
+          <B>100</B>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>DRY_SYMBOL</LAYER>
+          <R>150</R>
+          <G>150</G>
+          <B>150</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="4" DIMENSION="3" NAME="VOLUME" COMMENT="CONE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>580</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>90</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>75</A>
+          <B>50</B>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>DRY_SYMBOL</LAYER>
+          <R>150</R>
+          <G>150</G>
+          <B>150</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="5" DIMENSION="3" NAME="VOLUME" COMMENT="PROFILE_TRAPEZE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>-415</X>
+          <Y>567.1650635094611</Y>
+          <Z>290.8910161513775</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>30</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>120</A>
+          <B>5</B>
+          <C>80</C>
+          <D>0</D>
+          <E>0</E>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>0</LAYER>
+          <R>200</R>
+          <G>200</G>
+          <B>200</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="6" DIMENSION="3" NAME="FONCTION" COMMENT="CERCLE" PARENT_NUM="5">
+        <ORIGIN>
+          <X>-415</X>
+          <Y>564.6650635094611</Y>
+          <Z>295.22114317029974</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>120</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>0</A>
+          <B>360</B>
+          <C>30.5</C>
+          <D>2.5</D>
+          <E>0</E>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>0</LAYER>
+          <R>200</R>
+          <G>200</G>
+          <B>200</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="7" DIMENSION="3" NAME="VOLUME" COMMENT="PROFILE_TRAPEZE" PARENT_NUM="-1">
+        <ORIGIN>
+          <X>-415</X>
+          <Y>-567.1650635094611</Y>
+          <Z>290.8910161513775</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>30</X>
+          <Y>0</Y>
+          <Z>180</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>120</A>
+          <B>5</B>
+          <C>80</C>
+          <D>0</D>
+          <E>0</E>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>0</LAYER>
+          <R>200</R>
+          <G>200</G>
+          <B>200</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+      <OBJECT NUM="8" DIMENSION="3" NAME="FONCTION" COMMENT="CERCLE" PARENT_NUM="7">
+        <ORIGIN>
+          <X>-415</X>
+          <Y>-564.6650635094611</Y>
+          <Z>295.22114317029974</Z>
+        </ORIGIN>
+        <ROTATION>
+          <X>120</X>
+          <Y>0</Y>
+          <Z>180</Z>
+        </ROTATION>
+        <PARAMETERS>
+          <A>0</A>
+          <B>360</B>
+          <C>30.5</C>
+          <D>2.5</D>
+          <E>0</E>
+        </PARAMETERS>
+        <VISIBILITY>
+          <OBJECT_SPACE>1</OBJECT_SPACE>
+          <FRONT>1</FRONT>
+          <REAR>1</REAR>
+          <LEFT>1</LEFT>
+          <RIGHT>1</RIGHT>
+          <TOP>1</TOP>
+          <BOTTOM>1</BOTTOM>
+          <THREE_DIM>1</THREE_DIM>
+          <TOP_DETAILS>1</TOP_DETAILS>
+          <BIM_VISIBILITY>1</BIM_VISIBILITY>
+        </VISIBILITY>
+        <MISCELLANEAOUS>
+          <LAYER>0</LAYER>
+          <R>200</R>
+          <G>200</G>
+          <B>200</B>
+          <BIM_MATERIAUX/>
+          <BIM_OPAQUE/>
+        </MISCELLANEAOUS>
+      </OBJECT>
+    </DRAWING>
+  </CENTRALE>
+</CIATLST>
